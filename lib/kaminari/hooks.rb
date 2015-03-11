@@ -3,7 +3,7 @@ module Kaminari
     def self.init
       ActiveSupport.on_load(:active_record) do
         require 'kaminari/models/active_record_extension'
-        ::ActiveRecord::Base.send :include, Kaminari::ActiveRecordExtension
+        ::ActiveRecord::Base.extend Kaminari::ActiveRecordExtension
       end
 
       begin; require 'mongoid'; rescue LoadError; end
